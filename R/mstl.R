@@ -453,8 +453,8 @@ stlm <- function(y, s.window=13, robust=FALSE, method=c("ets", "arima"), modelfu
         if (is.na(ret$x[1])){
           no_NAs <- match(FALSE, is.na(ret$x)) - 1
           header <- rep(NA, no_NAs)
-          ret$fitted <- c(header, fitted(fit))
-          ret$residuals <- c(header, residuals(fit))
+          ret$fitted <- c(header, fitted(ret))
+          ret$residuals <- c(header, residuals(ret))
         }
         return(ret)
       }
