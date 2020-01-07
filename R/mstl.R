@@ -454,9 +454,9 @@ stlm <- function(y, s.window=13, robust=FALSE, method=c("ets", "arima"), modelfu
           no_NAs <- match(FALSE, is.na(ret$x)) - 1
           header <- rep(NA, no_NAs)
           tspf <- tsp(fitted(ret))
-          ret$fitted <- ts(header, fitted(ret), end = tspf[2L],
+          ret$fitted <- ts(c(header, fitted(ret)), end = tspf[2L],
                            frequency = tspf[3L])
-          ret$residuals <- ts(header, residuals(ret), end = tspf[2L],
+          ret$residuals <- ts(c(header, residuals(ret)), end = tspf[2L],
                               frequency = tspf[3L])
         }
         return(ret)
